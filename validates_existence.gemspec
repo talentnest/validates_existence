@@ -15,14 +15,11 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = [
     "README.markdown"
   ]
-  s.files = [
-    "README.markdown",
-    "install.rb",
-    "lib/rails2.rb",
-    "lib/rails3.rb",
-    "lib/validates_existence.rb",
-    "rails/init.rb"
-  ]
+
+  s.files         = `git ls-files`.split($/)
+  s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+
   s.homepage = "http://github.com/perfectline/validates_existence/tree/master"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
